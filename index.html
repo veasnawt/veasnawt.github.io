@@ -2,15 +2,22 @@
 <html>
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<style>
+  input{
+      position:absolute;
+      top:0px;
+      height:100%;
+      width: 100%;
+  }
+</style>
 </head>
 <body>
-<input type="text" id="deeplink" placeholder="deeplink"/> 
-<button id="btnSubmit">Submit</button>
+<text type="text" id="deeplink" placeholder="deeplink"/> 
 </body>
 </html>
 <script>
 $(document).ready(() => {
-  $("#btnSubmit").click(() => {
+  $("#deeplink").change(function(){
     window.location.href = $("#deeplink").val();
   });
 })
