@@ -4,13 +4,17 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 <body>
+<div>
 <input type="text" id="deeplink" placeholder="deeplink"/> 
 <button id="btnSubmit">Submit</button>
+</div>
 </body>
 </html>
 <script>
 $(document).ready(() => {
-  $("#btnSubmit").click(() => {
+  $("div").css("position", "absolute");
+  $("div").css({top:'50%',left:'50%', transform: 'translate(-50%, -50%)'});
+  $("#btnSubmit").click(function(){
     window.location.href = $("#deeplink").val();
   });
 })
