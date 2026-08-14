@@ -1,0 +1,139 @@
+.terminalWindow {
+  background-color: #0d1117;
+  border: 1px solid #30363d;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-elevated);
+  font-family: var(--font-mono);
+}
+
+.terminalBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.25rem;
+  background-color: #161b22;
+  border-bottom: 1px solid #30363d;
+}
+
+.windowControls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+}
+
+.dotRed {
+  background-color: #ff5f56;
+}
+
+.dotYellow {
+  background-color: #ffbd2e;
+}
+
+.dotGreen {
+  background-color: #27c93f;
+}
+
+.terminalTitle {
+  font-size: 0.8125rem;
+  color: #8b949e;
+  font-weight: 500;
+}
+
+.emptySpacer {
+  width: 50px;
+}
+
+.terminalBody {
+  padding: 1.25rem;
+  min-height: 260px;
+  max-height: 400px;
+  overflow-y: auto;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: #c9d1d9;
+  cursor: text;
+}
+
+.line {
+  margin-bottom: 0.5rem;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.promptPrefix {
+  color: #58a6ff;
+  font-weight: 600;
+}
+
+.system {
+  color: #8b949e;
+}
+
+.input {
+  color: #f0f6fc;
+}
+
+.output {
+  color: #c9d1d9;
+}
+
+.error {
+  color: #f85149;
+}
+
+.inputRow {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.terminalInput {
+  background: transparent;
+  border: none;
+  color: #f0f6fc;
+  font-family: inherit;
+  font-size: inherit;
+  flex-grow: 1;
+  outline: none;
+}
+
+.quickCommands {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  background-color: #161b22;
+  border-top: 1px solid #30363d;
+}
+
+.quickLabel {
+  font-size: 0.75rem;
+  color: #8b949e;
+  margin-right: 0.25rem;
+}
+
+.quickBtn {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--radius-sm);
+  background-color: #21262d;
+  color: #58a6ff;
+  border: 1px solid #30363d;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.quickBtn:hover {
+  background-color: #30363d;
+  color: #79c0ff;
+  border-color: #58a6ff;
+}

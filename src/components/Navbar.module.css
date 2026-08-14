@@ -1,0 +1,140 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-subtle);
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+[data-theme="dark"] .header {
+  background-color: rgba(11, 15, 23, 0.85);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 4.25rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--text-primary);
+}
+
+.logoSymbol {
+  font-family: var(--font-mono);
+  color: var(--accent-primary);
+  font-weight: 800;
+}
+
+.logoText {
+  letter-spacing: -0.02em;
+}
+
+.navGroup {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  list-style: none;
+}
+
+.navLink {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: color 0.15s ease;
+}
+
+.navLink:hover {
+  color: var(--accent-primary);
+}
+
+.navActions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.githubLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+  background-color: var(--bg-surface);
+  color: var(--text-secondary);
+  transition: all 0.2s ease;
+}
+
+.githubLink:hover {
+  color: var(--text-primary);
+  background-color: var(--bg-surface-hover);
+  border-color: var(--border-medium);
+}
+
+.menuBtn {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  color: var(--text-primary);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+  background-color: var(--bg-surface);
+}
+
+.mobileMenu {
+  display: none;
+  background-color: var(--bg-surface);
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 1.25rem 1.5rem;
+}
+
+.mobileNavLinks {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.mobileNavLink {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  display: block;
+}
+
+.mobileNavLink:hover {
+  color: var(--accent-primary);
+}
+
+@media (max-width: 768px) {
+  .navLinks {
+    display: none;
+  }
+
+  .menuBtn {
+    display: inline-flex;
+  }
+
+  .mobileMenu {
+    display: block;
+  }
+}

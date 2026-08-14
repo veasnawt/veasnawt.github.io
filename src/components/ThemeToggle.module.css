@@ -1,0 +1,27 @@
+.toggleBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+  background-color: var(--bg-surface);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.toggleBtn:hover {
+  background-color: var(--bg-surface-hover);
+  border-color: var(--border-medium);
+}
+
+.placeholder {
+  width: 2.25rem;
+  height: 2.25rem;
+}
+
+.icon {
+  display: block;
+}

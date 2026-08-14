@@ -1,36 +1,58 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# veasnawt.github.io
 
-## Getting Started
+Personal engineering hub and portfolio built with **Next.js**, **TypeScript**, and **Vanilla CSS Modules**, optimized for static export and hosting on **GitHub Pages** (`https://veasnawt.github.io`).
 
-First, run the development server:
+---
 
+## 🚀 Features
+
+- **Next.js App Router & TypeScript**: Full type-safety, clean modular architecture, and modern React Server/Client component split.
+- **Static Export**: Configured with `output: 'export'` and unoptimized images in [`next.config.ts`](file:///D:/Veasna/App%20Development/veasnawt.github.io/next.config.ts) for GitHub Pages compatibility.
+- **Automated GitHub Actions CI/CD**: Preconfigured workflow in [`.github/workflows/deploy.yml`](file:///D:/Veasna/App%20Development/veasnawt.github.io/.github/workflows/deploy.yml) that builds and deploys the site whenever you push to `main`.
+- **Bypass Jekyll Processing**: Includes `public/.nojekyll` to ensure GitHub Pages correctly serves `_next` static assets without 404s.
+- **Interactive Developer Console**: Built-in terminal component responding to interactive commands (`help`, `whoami`, `projects`, `skills`, `contact`, `clear`).
+- **Responsive & Accessible Design**: Light/Dark theme switching with system detection and persistence, modern typography, semantic HTML, and zero bloated CSS dependencies.
+
+---
+
+## 🛠️ Local Development
+
+### 1. Install dependencies
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Start the dev server
+```bash
+npm run dev
+```
+Open [http://localhost:3000](http://localhost:3000) with your browser to view the application.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 3. Build & test static export
+```bash
+npm run build
+```
+The static HTML/CSS/JS export will be generated in the `./out` directory.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🌐 Deploying to GitHub Pages
 
-To learn more about Next.js, take a look at the following resources:
+1. **Create the GitHub Repository**:
+   Create a new public repository on GitHub named `veasnawt.github.io` under your account (`veasnawt`).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. **Configure GitHub Pages Source**:
+   - Go to your repository on GitHub: `https://github.com/veasnawt/veasnawt.github.io/settings/pages`
+   - Under **Build and deployment > Source**, select **GitHub Actions**.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+3. **Push your code**:
+   ```bash
+   git add .
+   git commit -m "Initial Next.js TypeScript site setup"
+   git branch -M main
+   git remote add origin https://github.com/veasnawt/veasnawt.github.io.git
+   git push -u origin main
+   ```
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+4. **Live Site**:
+   The GitHub Actions workflow will trigger automatically and deploy your site to `https://veasnawt.github.io`.
