@@ -70,7 +70,7 @@ export default function Hero() {
         {/* Quick metrics bar */}
         <div className={styles.metricsGrid}>
           <div className={styles.metricCard}>
-            <div className={styles.metricNumber}>5+</div>
+            <div className={styles.metricNumber}>8+</div>
             <div className={styles.metricLabel}>Engineered Systems & Apps</div>
           </div>
           <div className={styles.metricCard}>

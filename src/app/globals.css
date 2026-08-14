@@ -6,6 +6,7 @@
   --bg-surface-elevated: #ffffff;
   --bg-subtle: #f1f5f9;
   --bg-accent-subtle: #e0f2fe;
+  --bg-header: rgba(248, 250, 252, 0.85);
 
   --text-primary: #0f172a;
   --text-secondary: #475569;
@@ -46,6 +47,7 @@
   --bg-surface-elevated: #162032;
   --bg-subtle: #1e293b;
   --bg-accent-subtle: #172554;
+  --bg-header: rgba(11, 15, 23, 0.85);
 
   --text-primary: #f8fafc;
   --text-secondary: #94a3b8;
@@ -79,6 +81,7 @@
     --bg-surface-elevated: #162032;
     --bg-subtle: #1e293b;
     --bg-accent-subtle: #172554;
+    --bg-header: rgba(11, 15, 23, 0.85);
 
     --text-primary: #f8fafc;
     --text-secondary: #94a3b8;

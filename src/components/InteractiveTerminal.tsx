@@ -24,11 +24,14 @@ export default function InteractiveTerminal() {
       text: "Type 'help' or click quick command buttons below to interact.",
     },
   ]);
-  const terminalEndRef = useRef<HTMLDivElement>(null);
+  const terminalBodyRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    terminalEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    // Only scroll the internal terminal container, never the browser window
+    if (terminalBodyRef.current) {
+      terminalBodyRef.current.scrollTop = terminalBodyRef.current.scrollHeight;
+    }
   }, [history]);
 
   const nextId = (tag: string) => {
@@ -79,11 +82,14 @@ export default function InteractiveTerminal() {
         id: nextId("out"),
         type: "output",
         text: `Active Projects:
-  1. Veasna OS    -> Web-based desktop operating system simulator
-  2. Loom RPG     -> 2D Canvas RPG engine with custom physics loop
-  3. VBoard       -> Real-time visual collaboration & diagram canvas
-  4. NextGen      -> Interactive online academy and lesson system
-  5. Rixie        -> Modular CLI & developer utility suite`,
+  1. Veasna OS    -> Web-based desktop OS & universe for creators
+  2. Loom Engine  -> Web 2D game engine & visual studio for Loom
+  3. Loom         -> Declarative language for programming worlds
+  4. VBoard       -> Khmer transliteration keyboard for Android
+  5. Rixie        -> Intelligent AI assistant inside Veasna OS
+  6. VStudio      -> Fast short-form creative video editor
+  7. VIcons       -> Minimalist SVG icon library for React (130+ icons)
+  8. codelover    -> Aesthetic dark theme for Visual Studio Code`,
       };
     } else if (lower === "skills") {
       outputLine = {
@@ -117,13 +123,14 @@ export default function InteractiveTerminal() {
 
   const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
+      e.preventDefault();
       handleCommand(inputVal);
     }
   };
 
   const executeQuick = (cmd: string) => {
     handleCommand(cmd);
-    inputRef.current?.focus();
+    inputRef.current?.focus({ preventScroll: true });
   };
 
   return (
@@ -151,8 +158,9 @@ export default function InteractiveTerminal() {
           </div>
 
           <div
+            ref={terminalBodyRef}
             className={styles.terminalBody}
-            onClick={() => inputRef.current?.focus()}
+            onClick={() => inputRef.current?.focus({ preventScroll: true })}
           >
             {history.map((line) => (
               <div key={line.id} className={`${styles.line} ${styles[line.type]}`}>
@@ -178,7 +186,6 @@ export default function InteractiveTerminal() {
                 aria-label="Terminal input"
               />
             </div>
-            <div ref={terminalEndRef} />
           </div>
 
           {/* Quick command buttons */}

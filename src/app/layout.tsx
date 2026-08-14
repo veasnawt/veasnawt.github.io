@@ -24,8 +24,13 @@ export const metadata: Metadata = {
     "TypeScript",
     "Game Engine",
     "Veasna OS",
-    "Loom RPG",
+    "Loom Engine",
+    "Loom",
     "VBoard",
+    "Rixie",
+    "VStudio",
+    "VIcons",
+    "codelover",
   ],
   authors: [{ name: "Veasna", url: "https://veasnawt.github.io" }],
   metadataBase: new URL("https://veasnawt.github.io"),
@@ -56,6 +61,13 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable}`}
       suppressHydrationWarning
     >
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var s=localStorage.getItem("theme");var p=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";var t=s||p;document.documentElement.setAttribute("data-theme",t);}catch(e){}})();`,
+          }}
+        />
+      </head>
       <body id="top">{children}</body>
     </html>
   );
