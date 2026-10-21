@@ -6,7 +6,7 @@ export default function Contact() {
       <div className="container">
         <div className="section-header">
           <div className="badge" style={{ marginBottom: "0.75rem" }}>Get in Touch</div>
-          <h2 className="section-title">Let's Build Something Useful</h2>
+          <h2 className="section-title">Let&apos;s Build Something Useful</h2>
           <p className="section-subtitle">
             Interested in collaborating on software, systems research, or open source? Reach out through an actual contact channel.
           </p>
