@@ -1,58 +1,91 @@
-# veasnawt.github.io
+# Veasna · Developer Portfolio
 
-Personal engineering hub and portfolio built with **Next.js**, **TypeScript**, and **Vanilla CSS Modules**, optimized for static export and hosting on **GitHub Pages** (`https://veasnawt.github.io`).
+[**veasnawt.com**](https://veasnawt.com) · [GitHub](https://github.com/veasnawt)
 
----
+The source for my personal portfolio: a curated look at the apps, systems research, and open-source tools I'm building. The site deliberately highlights a small selection of substantial projects instead of listing every experiment.
 
-## 🚀 Features
+Built with **Next.js**, **React**, **TypeScript**, and **CSS Modules**. Deployed as a static site to **GitHub Pages**, with [veasnawt.com](https://veasnawt.com) as the custom domain.
 
-- **Next.js App Router & TypeScript**: Full type-safety, clean modular architecture, and modern React Server/Client component split.
-- **Static Export**: Configured with `output: 'export'` and unoptimized images in [`next.config.ts`](file:///D:/Veasna/App%20Development/veasnawt.github.io/next.config.ts) for GitHub Pages compatibility.
-- **Automated GitHub Actions CI/CD**: Preconfigured workflow in [`.github/workflows/deploy.yml`](file:///D:/Veasna/App%20Development/veasnawt.github.io/.github/workflows/deploy.yml) that builds and deploys the site whenever you push to `main`.
-- **Bypass Jekyll Processing**: Includes `public/.nojekyll` to ensure GitHub Pages correctly serves `_next` static assets without 404s.
-- **Interactive Developer Console**: Built-in terminal component responding to interactive commands (`help`, `whoami`, `projects`, `skills`, `contact`, `clear`).
-- **Responsive & Accessible Design**: Light/Dark theme switching with system detection and persistence, modern typography, semantic HTML, and zero bloated CSS dependencies.
+## Selected projects
 
----
+| Project | What it is | Current status | Explore |
+| --- | --- | --- | --- |
+| **VOS** | An independent, from-scratch x86-64 operating-system kernel, written primarily in freestanding C and assembly | Pre-alpha research, tested in QEMU | [Source](https://github.com/veasnawt/vos) |
+| **Pinly** | Location-based social discovery, with content pinned to places and discovered by map or camera | Published Android app | [Google Play](https://play.google.com/store/apps/details?id=com.veasnawt.pinly) |
+| **VCut** | Video editor with multi-track timeline, keyframes, and export workflows | Public beta | [Website](https://vcut.io/) |
+| **VBoard** | Android keyboard for typing Khmer from Latin phonetics and shortcuts | Published Android app | [Google Play](https://play.google.com/store/apps/details?id=com.veasnawt.vboard) |
+| **VIcons** | React SVG icon library with 145+ icons and TypeScript support | Open-source package | [Source](https://github.com/veasnawt/vicons) · [Docs](https://veasnawt.com/vicons/) |
+| **Veasna OS Universe** | Experimental desktop-style creative environment built with web technologies and Electron | Prototype | [Source](https://github.com/veasnawt/veasna-os) |
 
-## 🛠️ Local Development
+> **Two distinct OS projects:** VOS is the real kernel project; it is not yet an installable, everyday-use desktop OS. Veasna OS Universe is a separate web/Electron desktop prototype and does **not** run on the VOS kernel.
 
-### 1. Install dependencies
-```bash
-npm install
-```
+The full project list, descriptions, and links shown on the website are maintained in [`src/data/projects.ts`](src/data/projects.ts). Project status is intentional: research, beta software, published apps, and prototypes are not interchangeable labels.
 
-### 2. Start the dev server
-```bash
+## Portfolio features
+
+- **Curated project cards** with status labels, technology tags, expandable descriptions, and links to public code or products.
+- **Interactive developer terminal** with commands including `help`, `whoami`, `projects`, `skills`, `contact`, `date`, and `clear`.
+- **Responsive layout** with light and dark themes.
+- **Static export** compatible with GitHub Pages, including no-Jekyll processing for Next.js assets.
+- **Public contact links** via GitHub. The site does not pretend to send messages from a form without a backend.
+
+## Run locally
+
+Use **Node.js 20.9+** (Node.js 22 is a good choice) and npm.
+
+~~~bash
+git clone https://github.com/veasnawt/veasnawt.github.io.git
+cd veasnawt.github.io
+npm ci
 npm run dev
-```
-Open [http://localhost:3000](http://localhost:3000) with your browser to view the application.
+~~~
 
-### 3. Build & test static export
-```bash
+Visit [http://localhost:3000](http://localhost:3000).
+
+### Validate changes
+
+~~~bash
+npm run lint
 npm run build
-```
-The static HTML/CSS/JS export will be generated in the `./out` directory.
+~~~
+
+The build command runs `next build` followed by [`scripts/postbuild.js`](scripts/postbuild.js), which preserves compatibility for existing privacy-page URLs. The static output is written to `out/`.
+
+## Repository guide
+
+| Path | Purpose |
+| --- | --- |
+| [`src/data/projects.ts`](src/data/projects.ts) | Selected projects, descriptions, status, and external links |
+| [`src/data/skills.ts`](src/data/skills.ts) | Technical focus and skills content |
+| [`src/components/`](src/components/) | Hero, projects, terminal, contact, navigation, and other sections |
+| [`src/app/`](src/app/) | Next.js App Router pages, layout, and metadata |
+| [`next.config.ts`](next.config.ts) | Static export, trailing slashes, and image configuration |
+| [`CNAME`](CNAME) | GitHub Pages custom domain |
+| [`.github/workflows/verify.yml`](.github/workflows/verify.yml) | Pull-request lint and build checks |
+| [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) | Production deployment to GitHub Pages |
+
+## Deploy
+
+The website is hosted on GitHub Pages at **[https://veasnawt.com](https://veasnawt.com)**.
+
+1. Open a pull request against `main`. The **Verify portfolio** workflow runs `npm ci`, `npm run lint`, and `npm run build`.
+2. Review the change and make sure the checks pass.
+3. Merge into `main` to trigger [the GitHub Pages deployment workflow](.github/workflows/deploy.yml). It builds the site and publishes the `out/` artifact.
+4. GitHub Pages is configured to use **GitHub Actions** as its source, with **veasnawt.com** as its custom domain. DNS records are managed separately at the domain provider.
+
+The [`CNAME`](CNAME) file contains `veasnawt.com`. Do not replace it with the old `veasnawt.github.io` address. For troubleshooting, see [GitHub Pages settings](https://github.com/veasnawt/veasnawt.github.io/settings/pages) and the [Actions runs](https://github.com/veasnawt/veasnawt.github.io/actions).
+
+## Updating the portfolio
+
+A good portfolio shows **real work and its current state**, not an inflated project count.
+
+- Add or edit a selected project in [`src/data/projects.ts`](src/data/projects.ts). Use verifiable claims and working URLs.
+- Keep kernel research separate from desktop prototypes. Don't present planned features as shipped.
+- Update [`src/data/skills.ts`](src/data/skills.ts) when the actual technical focus changes.
+- Run lint and the production build, then submit a pull request.
+
+For site feedback or public collaboration inquiries, [open an issue](https://github.com/veasnawt/veasnawt.github.io/issues/new). **Issues are public**, so please don't include secrets or private information.
 
 ---
 
-## 🌐 Deploying to GitHub Pages
-
-1. **Create the GitHub Repository**:
-   Create a new public repository on GitHub named `veasnawt.github.io` under your account (`veasnawt`).
-
-2. **Configure GitHub Pages Source**:
-   - Go to your repository on GitHub: `https://github.com/veasnawt/veasnawt.github.io/settings/pages`
-   - Under **Build and deployment > Source**, select **GitHub Actions**.
-
-3. **Push your code**:
-   ```bash
-   git add .
-   git commit -m "Initial Next.js TypeScript site setup"
-   git branch -M main
-   git remote add origin https://github.com/veasnawt/veasnawt.github.io.git
-   git push -u origin main
-   ```
-
-4. **Live Site**:
-   The GitHub Actions workflow will trigger automatically and deploy your site to `https://veasnawt.github.io`.
+Made by [Veasna (@veasnawt)](https://github.com/veasnawt).
