@@ -100,7 +100,7 @@ export default function InteractiveTerminal() {
       outputLine = {
         id: nextId("out"),
         type: "output",
-        text: "Current session time: " + new Date().toLocaleString()",
+        text: "Current session time: " + new Date().toLocaleString(),
       };
     } else {
       outputLine = {
