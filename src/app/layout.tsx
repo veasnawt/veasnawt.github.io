@@ -13,40 +13,23 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Veasna | Software Engineer & Systems Developer",
-  description:
-    "Personal engineering hub and project portfolio for Veasna (@veasnawt). Systems architecture, 2D game loops, desktop simulators, and modern web applications.",
-  keywords: [
-    "Veasna",
-    "veasnawt",
-    "Software Engineer",
-    "Next.js",
-    "TypeScript",
-    "Game Engine",
-    "Veasna OS",
-    "Loom Engine",
-    "Loom",
-    "VBoard",
-    "Rixie",
-    "VStudio",
-    "VIcons",
-    "codelover",
-  ],
-  authors: [{ name: "Veasna", url: "https://veasnawt.github.io" }],
-  metadataBase: new URL("https://veasnawt.github.io"),
+  title: "Veasna | Software Developer & Systems Builder",
+  description: "Selected work by Veasna (@veasnawt): VOS kernel research, Pinly, VCut, VBoard, VIcons, and the separate Veasna OS Universe desktop prototype.",
+  keywords: ["Veasna", "veasnawt", "VOS", "Operating System", "Pinly", "VCut", "VBoard", "VIcons", "Open Source", "Software Developer"],
+  authors: [{ name: "Veasna", url: "https://veasnawt.com" }],
+  metadataBase: new URL("https://veasnawt.com"),
+  alternates: { canonical: "/" },
   openGraph: {
-    title: "Veasna | Software Engineer & Systems Developer",
-    description:
-      "Personal engineering hub and project portfolio for Veasna (@veasnawt).",
-    url: "https://veasnawt.github.io",
-    siteName: "veasnawt.github.io",
+    title: "Veasna | Software Developer & Systems Builder",
+    description: "From kernel research to published apps and open-source tools. Selected projects by Veasna.",
+    url: "https://veasnawt.com",
+    siteName: "veasnawt.com",
     type: "website",
   },
   twitter: {
-    card: "summary_large_image",
-    title: "Veasna | Software Engineer & Systems Developer",
-    description:
-      "Personal engineering hub and project portfolio for Veasna (@veasnawt).",
+    card: "summary",
+    title: "Veasna | Software Developer & Systems Builder",
+    description: "Systems research, published apps, and open-source tools by Veasna (@veasnawt).",
   },
 };
 

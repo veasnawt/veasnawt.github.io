@@ -58,6 +58,7 @@
 }
 
 .channelLabel {
+  display: block;
   font-size: 0.75rem;
   color: var(--text-muted);
   text-transform: uppercase;
@@ -66,6 +67,7 @@
 }
 
 .channelValue {
+  display: block;
   font-size: 0.9375rem;
   font-weight: 500;
 }

@@ -12,7 +12,7 @@ export default function Footer() {
               <span>veasnawt</span>
             </div>
             <p className={styles.tagline}>
-              Engineering systems, 2D game loops, web applications, and modular developer tools.
+              Building useful apps, open-source tools, and a kernel from the ground up.
             </p>
           </div>
 
@@ -44,7 +44,7 @@ export default function Footer() {
                   </a>
                 </li>
                 <li>
-                  <Link href="#contact">Contact Form</Link>
+                  <Link href="#contact">Contact</Link>
                 </li>
               </ul>
             </div>
@@ -57,7 +57,7 @@ export default function Footer() {
           </p>
           <div className={styles.hostBadge}>
             <span className={styles.hostDot}></span>
-            <span>veasnawt.github.io</span>
+            <span>veasnawt.com</span>
           </div>
         </div>
       </div>

@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect, KeyboardEvent } from "react";
 import styles from "./InteractiveTerminal.module.css";
+import { projects } from "../data/projects";
 
 interface TerminalLine {
   id: string;
@@ -65,7 +66,7 @@ export default function InteractiveTerminal() {
         type: "output",
         text: `Available commands:
   • whoami      - Display developer identity and focus
-  • projects    - List all active engineered projects
+  • projects    - List the selected portfolio projects
   • skills      - Show technical specialties & tools
   • contact     - Output contact and GitHub links
   • date        - Print current session timestamp
@@ -75,39 +76,31 @@ export default function InteractiveTerminal() {
       outputLine = {
         id: nextId("out"),
         type: "output",
-        text: "Veasna (@veasnawt) - Software Engineer & Systems Developer creating web environments, interactive engines, and modular tools.",
+        text: "Veasna (@veasnawt) - Independent developer building kernel research, web products, Android apps, and open-source tools.",
       };
     } else if (lower === "projects") {
       outputLine = {
         id: nextId("out"),
         type: "output",
-        text: `Active Projects:
-  1. Veasna OS    -> Web-based desktop OS & universe for creators
-  2. Loom Engine  -> Web 2D game engine & visual studio for Loom
-  3. Loom         -> Declarative language for programming worlds
-  4. VBoard       -> Khmer transliteration keyboard for Android
-  5. Rixie        -> Intelligent AI assistant inside Veasna OS
-  6. VStudio      -> Fast short-form creative video editor
-  7. VIcons       -> Minimalist SVG icon library for React (130+ icons)
-  8. codelover    -> Aesthetic dark theme for Visual Studio Code`,
+        text: "Selected projects:\n" + projects.map((p, i) => "  " + (i + 1) + ". " + p.title + " - " + p.status).join("\n"),
       };
     } else if (lower === "skills") {
       outputLine = {
         id: nextId("out"),
         type: "output",
-        text: "Core Stack: TypeScript, Next.js, React, Node.js, Canvas 2D/WebGL, CSS Modules, Git & CI/CD.",
+        text: "Core stack: C, x86 assembly, QEMU, TypeScript, Next.js, React, Kotlin, Android, FFmpeg, and GitHub Actions.",
       };
     } else if (lower === "contact") {
       outputLine = {
         id: nextId("out"),
         type: "output",
-        text: "GitHub: https://github.com/veasnawt\nWebsite: https://veasnawt.github.io\nStatus: Open for collaborations and discussions.",
+        text: "GitHub: https://github.com/veasnawt\nWebsite: https://veasnawt.com\nStatus: Open for collaborations and discussions.",
       };
     } else if (lower === "date") {
       outputLine = {
         id: nextId("out"),
         type: "output",
-        text: "Active session running in client browser environment.",
+        text: "Current session time: " + new Date().toLocaleString(),
       };
     } else {
       outputLine = {
@@ -153,7 +146,7 @@ export default function InteractiveTerminal() {
               <span className={`${styles.dot} ${styles.dotYellow}`}></span>
               <span className={`${styles.dot} ${styles.dotGreen}`}></span>
             </div>
-            <span className={styles.terminalTitle}>veasna@github.io: ~</span>
+            <span className={styles.terminalTitle}>veasna@veasnawt.com: ~</span>
             <div className={styles.emptySpacer}></div>
           </div>
 
