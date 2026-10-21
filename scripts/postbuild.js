@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-require-imports -- This Node post-build helper is intentionally CommonJS. */
 const fs = require('fs');
 const path = require('path');
 
