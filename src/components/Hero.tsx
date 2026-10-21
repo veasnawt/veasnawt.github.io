@@ -7,17 +7,17 @@ export default function Hero() {
       <div className={`container ${styles.heroContainer}`}>
         <div className={styles.statusBadge}>
           <span className="status-dot" aria-hidden="true"></span>
-          <span>Available for open-source & engineering projects</span>
+          <span>Independent developer & open-source builder</span>
         </div>
 
         <h1 className={styles.heroTitle}>
           Hi, I&apos;m <span className={styles.highlight}>Veasna</span>.
           <br />
-          I build high-performance web systems, games & tools.
+          I build useful software and explore the systems beneath it.
         </h1>
 
         <p className={styles.heroDescription}>
-          Software developer focused on TypeScript, Next.js, 2D game loops, system architectures, and interactive browser applications. Hosted live on GitHub Pages.
+          From x86-64 kernel research to Android apps, video tools, and Khmer-language software. I work across systems, web, and mobile, and publish what I can in the open.
         </p>
 
         <div className={styles.heroActions}>
@@ -70,20 +70,20 @@ export default function Hero() {
         {/* Quick metrics bar */}
         <div className={styles.metricsGrid}>
           <div className={styles.metricCard}>
-            <div className={styles.metricNumber}>8+</div>
-            <div className={styles.metricLabel}>Engineered Systems & Apps</div>
+            <div className={styles.metricNumber}>6</div>
+            <div className={styles.metricLabel}>Selected projects</div>
           </div>
           <div className={styles.metricCard}>
-            <div className={styles.metricNumber}>100%</div>
-            <div className={styles.metricLabel}>Type-Safe TypeScript</div>
+            <div className={styles.metricNumber}>x86-64</div>
+            <div className={styles.metricLabel}>Kernel research</div>
           </div>
           <div className={styles.metricCard}>
-            <div className={styles.metricNumber}>60 FPS</div>
-            <div className={styles.metricLabel}>Optimized Canvas & Loop Performance</div>
+            <div className={styles.metricNumber}>Android</div>
+            <div className={styles.metricLabel}>Published mobile apps</div>
           </div>
           <div className={styles.metricCard}>
-            <div className={styles.metricNumber}>CI/CD</div>
-            <div className={styles.metricLabel}>GitHub Pages Automated Pipelines</div>
+            <div className={styles.metricNumber}>145+</div>
+            <div className={styles.metricLabel}>Open-source icons</div>
           </div>
         </div>
       </div>

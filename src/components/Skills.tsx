@@ -7,11 +7,11 @@ export default function Skills() {
       <div className="container">
         <div className="section-header">
           <div className="badge" style={{ marginBottom: "0.75rem" }}>
-            Technical Expertise
+            Technical Focus
           </div>
-          <h2 className="section-title">Skills & Engineering Stack</h2>
+          <h2 className="section-title">What I Build With</h2>
           <p className="section-subtitle">
-            Core technologies, architectural paradigms, and runtime environments utilized across web, game, and system projects.
+            Languages, platforms, and practical engineering work behind these projects, from protected kernel memory to published Android apps.
           </p>
         </div>
 

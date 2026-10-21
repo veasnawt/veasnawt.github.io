@@ -9,29 +9,29 @@ export interface SkillCategory {
 
 export const skillCategories: SkillCategory[] = [
   {
-    title: "Frontend & Architecture",
+    title: "Kernel & Systems",
     skills: [
-      { name: "TypeScript", level: "Advanced", description: "Type systems, generics, strict AST validation" },
-      { name: "Next.js & React", level: "Advanced", description: "App Router, SSR, SSG static exports, React Server Components" },
-      { name: "Vanilla CSS & Modern Layouts", level: "Expert", description: "CSS variables, Grid, Flexbox, subgrid, micro-animations" },
-      { name: "Canvas 2D & WebGL", level: "Proficient", description: "High-framerate rendering loops, custom engines, physics math" },
+      { name: "Freestanding C & x86 Assembly", level: "Kernel", description: "Boot code, CPU interrupts, page tables, and low-level system primitives." },
+      { name: "Memory & Process Isolation", level: "VOS", description: "ELF user programs, system calls, protected memory, scheduling, and IPC." },
+      { name: "Read-only Storage & ext2", level: "Research", description: "Virtio block access, caching, and filesystem reads in the VOS kernel." },
+      { name: "QEMU & Regression Testing", level: "Testing", description: "Automated emulator-based checks for boot, isolation, and failure paths." },
     ],
   },
   {
-    title: "Backend & Systems",
+    title: "Web & Mobile Products",
     skills: [
-      { name: "Node.js & Runtime APIs", level: "Advanced", description: "Asynchronous I/O, streams, worker threads, CLI tooling" },
-      { name: "REST & GraphQL", level: "Proficient", description: "API design, schema validation, rate-limiting, error handling" },
-      { name: "State & Data Persistence", level: "Advanced", description: "IndexedDB, LocalStorage, state machines, reactive stores" },
-      { name: "System Design", level: "Proficient", description: "Modular component architecture, event-driven patterns" },
+      { name: "React, Next.js & TypeScript", level: "Web", description: "Interactive applications, component architecture, and static-site delivery." },
+      { name: "Android & Kotlin", level: "Mobile", description: "Native Android development and Khmer input method software." },
+      { name: "Editing & Media Pipelines", level: "Video", description: "Timeline interactions, keyframes, preview behavior, and FFmpeg workflows." },
+      { name: "Location-based Experiences", level: "Maps", description: "Geo-tagged content discovery and map-centered social applications." },
     ],
   },
   {
-    title: "Tools & DevOps",
+    title: "Engineering & Delivery",
     skills: [
-      { name: "Git & GitHub Actions", level: "Advanced", description: "CI/CD pipelines, automated Pages deployments, release tags" },
-      { name: "Performance & SEO", level: "Advanced", description: "Core Web Vitals, bundle tree-shaking, accessibility (a11y)" },
-      { name: "Vite & Bundlers", level: "Proficient", description: "ESBuild, rollup configs, asset pipelines" },
+      { name: "APIs & Backend Services", level: "Backend", description: "Application APIs, integration work, and service-oriented architecture." },
+      { name: "Git & GitHub Actions", level: "DevOps", description: "Version control, automated builds, and CI/CD pipelines." },
+      { name: "Open-source UI Libraries", level: "Tooling", description: "Typed components, reusable SVG assets, and developer documentation." },
     ],
   },
 ];

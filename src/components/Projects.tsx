@@ -1,10 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { projects, Project } from "../data/projects";
+import { projects, type Project } from "../data/projects";
 import styles from "./Projects.module.css";
 
-type CategoryFilter = "all" | "systems" | "games" | "web" | "tools";
+type CategoryFilter = "all" | Project["category"];
 
 export default function Projects() {
   const [activeFilter, setActiveFilter] = useState<CategoryFilter>("all");
@@ -20,10 +20,9 @@ export default function Projects() {
 
   const getCategoryLabel = (category: Project["category"]) => {
     switch (category) {
-      case "systems": return "Systems & OS";
-      case "games": return "Game Engine";
-      case "web": return "Web App";
-      case "tools": return "Tooling";
+      case "systems": return "Systems & Research";
+      case "apps": return "Apps";
+      case "tools": return "Libraries & Tools";
     }
   };
 
@@ -32,11 +31,11 @@ export default function Projects() {
       <div className="container">
         <div className="section-header">
           <div className="badge" style={{ marginBottom: "0.75rem" }}>
-            Portfolio Showcase
+            Selected Work
           </div>
-          <h2 className="section-title">Engineered Projects & Systems</h2>
+          <h2 className="section-title">Projects Worth Exploring</h2>
           <p className="section-subtitle">
-            A selected collection of software architectures, interactive engines, desktop simulator environments, and modern web applications.
+            A focused selection of published apps, reusable tools, and ongoing systems research. Each project is labeled with its actual status.
           </p>
         </div>
 
@@ -44,11 +43,10 @@ export default function Projects() {
         <div className={styles.filterBar} role="tablist" aria-label="Filter projects by category">
           {(
             [
-              { id: "all", label: "All Projects" },
-              { id: "systems", label: "Systems & OS" },
-              { id: "games", label: "Game Engines" },
-              { id: "web", label: "Web Apps" },
-              { id: "tools", label: "Tools" },
+              { id: "all", label: "Selected Work" },
+              { id: "systems", label: "Systems" },
+              { id: "apps", label: "Apps" },
+              { id: "tools", label: "Libraries" },
             ] as const
           ).map((tab) => (
             <button
@@ -87,9 +85,9 @@ export default function Projects() {
                       </span>
                     )}
                   </div>
-                  {project.metrics && (
+                  {project.status && (
                     <span className={styles.cardMetric}>
-                      {project.metrics}
+                      {project.status}
                     </span>
                   )}
                 </div>
@@ -138,7 +136,7 @@ export default function Projects() {
                   </button>
 
                   <div className={styles.actionButtons}>
-                    <a
+                    {project.githubUrl && (<a
                       href={project.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
@@ -161,7 +159,7 @@ export default function Projects() {
                         />
                       </svg>
                       <span>Code</span>
-                    </a>
+                    </a>)}
 
                     {project.demoUrl && (
                       <a
@@ -171,9 +169,9 @@ export default function Projects() {
                         className="btn btn-primary"
                         style={{ padding: "0.45rem 0.85rem", fontSize: "0.8125rem" }}
                         id={`demo-link-${project.id}`}
-                        aria-label={`View Live Demo of ${project.title}`}
+                        aria-label={`Open ${project.demoLabel ?? "website"} for ${project.title}`}
                       >
-                        <span>Demo</span>
+                        <span>{project.demoLabel ?? "Visit"}</span>
                         <svg
                           width="12"
                           height="12"
