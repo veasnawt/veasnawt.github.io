@@ -1,6 +1,6 @@
-# Proposal: align CI and deployment on Node.js 24 LTS
+# Align CI and deployment on Node.js 24 LTS
 
-Status: **proposal only.** No workflow, `package.json`, or deployment setting has been changed. Prepared 2026-10-23 on branch `chore/node-24-alignment` (from `main` at `2216ecc`).
+Status: **implemented on `chore/node-24-alignment`, awaiting review.** Based on `main` at `2216ecc`. Nothing is merged or deployed. The workflow changes are listed under [Change](#change).
 
 ## Current state
 
@@ -45,7 +45,7 @@ The verification scripts live on `feat/immersive-portfolio`. They were run again
 2. **Optional WebAssembly packages.** npm 11 skipped `@emnapi/runtime` and `@img/sharp-wasm32`, the WebAssembly fallbacks of `sharp`. They aren't needed on native platforms, and `sharp` isn't used by this static export (`images.unoptimized: true`).
 3. **Package count.** 344 packages instead of 346, for the reason in item 2. The build output is unaffected (see above).
 
-## Proposed change (not applied)
+## Change
 
 ```diff
 --- /dev/null
@@ -75,12 +75,36 @@ The verification scripts live on `feat/immersive-portfolio`. They were run again
            cache: ${{ steps.detect-package-manager.outputs.manager }}
 ```
 
-**Optional:** add `"engines": { "node": ">=24 <25" }` to `package.json`, so local installs on another major version get a warning. Skip it if contributors routinely use other versions.
+```diff
+--- a/.github/workflows/deploy.yml
++++ b/.github/workflows/deploy.yml
+   build:
++    # Never build a Pages artifact from another branch, even via workflow_dispatch.
++    if: github.ref == 'refs/heads/main'
+     runs-on: ubuntu-latest
+ ...
+   deploy:
++    if: github.ref == 'refs/heads/main'
+     environment:
+```
 
-## Safe rollout
+**Deploy guard:**
+- `push` already triggers only on `main`, but `workflow_dispatch` can be started from any branch.
+- Both deploy jobs now run only when `github.ref` is `refs/heads/main`. A manual run from a feature branch is skipped without building or deploying, while a manual redeploy from `main` still works.
+- The `github-pages` environment's own branch protection in the repository settings is a separate, complementary control and wasn't changed.
+
+**Verified on this branch:**
+- Node 24.22.0: `npm ci` (lockfile untouched), lint and build pass.
+- The export is identical to the Node 22 build: 0 of 60 files differ, build ID normalised.
+- Routes 12/12 and homepage functional checks 22/22.
+- Both workflow files parse, with the guards and `node-version-file` in place.
+
+**Optional, not included:** add `"engines": { "node": ">=24 <25" }` to `package.json`, so local installs on another major version get a warning. Skip it if contributors routinely use other versions.
+
+## Safe rollout (status)
 
 1. **Order.** Land the security upgrade first (`chore/security-next-16.4.2`) or this change first; both orders were verified. Keep them as separate PRs.
-2. **Open a PR with only the three changes above.** `verify.yml` runs on the PR with Node 24 on Linux: `npm ci`, lint, build.
+2. **Done:** a PR with these changes only. `verify.yml` runs on the PR with Node 24 on Linux: `npm ci`, lint, build.
 3. **Confirm the production build on the new version before merging.**
    - **Don't** run `deploy.yml` from the branch. It has `workflow_dispatch`, and a manual run would publish that branch to Pages.
    - Instead, add a temporary step to the PR's `verify.yml` job that uploads `out/` as a workflow artifact.
